@@ -182,15 +182,9 @@
 </template>
 
 <script>
-  var playgroundX = 700;
-  var playgroundY = 300;
   var fireballSize = 40;
   var getFireballSpeed = function (left) {
-    if (left) {
-      return 5;
-    }else{
-      return 2;
-    }
+    return left ? 5 : 2;
   }
   var wizardSpeed = 3;
   var wizardWidth = 70;
@@ -198,10 +192,10 @@
     return wizardWidth * 1.337;
   }
   var getWizardX = function (width) {
-    return playgroundX/2 - wizardWidth/2;
+    return width/2 - wizardWidth/2;
   }
   var getWizardY = function (height) {
-    return playgroundY/3*2;
+    return (height/3)*2;
   }
 </script>
 <script src="js/game.js"></script>
