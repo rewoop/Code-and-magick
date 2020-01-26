@@ -18,6 +18,10 @@ var renderCloud = function (ctx, x, y, color) {
   ctx.fillRect(x, y, CLOUD_WIDTH, CLOUD_HEIGHT);
 };
 
+var headerText = function (ctx, text, x, y) {
+  return (ctx.fillText(text, x, y));
+};
+
 var getMaxElement = function (arr) {
   var maxElement = arr[0];
 
@@ -37,6 +41,12 @@ var statColor = function (ctx, color) {
   return (ctx.fillStyle = color);
 };
 
+var statText = function (ctx, names, times, barHeight, index) {
+  statColor(ctx, '#000');
+  ctx.fillText(names, CLOUD_X + BAR_WIDTH + (BAR_GAP + BAR_WIDTH) * index, TEXT_Y);
+  ctx.fillText(Math.round(times), CLOUD_X + BAR_WIDTH + (BAR_GAP + BAR_WIDTH) * index, TEXT_Y - barHeight - TEXT_GAP);
+};
+
 var barColor = function (ctx, names) {
   if (names === 'Вы') {
     return (ctx.fillStyle = 'rgba(255, 0, 0, 1)');
@@ -45,10 +55,7 @@ var barColor = function (ctx, names) {
   }
 };
 
-var getStatistics = function (ctx, names, times, barHeight, index) {
-  statColor(ctx, '#000');
-  ctx.fillText(names, CLOUD_X + BAR_WIDTH + (BAR_GAP + BAR_WIDTH) * index, TEXT_Y);
-  ctx.fillText(Math.round(times), CLOUD_X + BAR_WIDTH + (BAR_GAP + BAR_WIDTH) * index, TEXT_Y - barHeight - TEXT_GAP);
+var barRender = function (ctx, names, barHeight, index) {
   barColor(ctx, names);
   ctx.fillRect(CLOUD_X + BAR_WIDTH + (BAR_GAP + BAR_WIDTH) * index, TEXT_Y - GAP - barHeight, BAR_WIDTH, barHeight);
 };
@@ -60,13 +67,14 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillStyle = '#000';
   ctx.font = '16px PT Mono';
   ctx.textBaseline = 'hanging';
-  ctx.fillText('Ура вы победили!', TEXT_X, TEXT_GAP);
-  ctx.fillText('Список результатов: ', TEXT_X, BAR_GAP);
+  headerText(ctx, 'Ура вы победили!', TEXT_X, TEXT_GAP);
+  headerText(ctx, 'Список результатов: ', TEXT_X, BAR_GAP);
 
   var maxTime = getMaxElement(times);
 
   for (var i = 0; i < names.length; i++) {
     var barHeight = ((CLOUD_X + BAR_GAP) * times[i]) / maxTime;
-    getStatistics(ctx, names[i], times[i], barHeight, i);
+    statText(ctx, names[i], times[i], barHeight, i);
+    barRender(ctx, names[i], barHeight, i);
   }
 };
