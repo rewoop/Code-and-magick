@@ -12,29 +12,29 @@ var coatColorArr = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 16
 var eyesColorArr = ['black', 'red', 'blue', 'yellow', 'green'];
 
 var random = function (min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.floor(Math.random() * (max - min) + min);
 };
 
 var wizard = [
   {
-    name: firstName[Math.round(random(0, firstName.length - 1))] + ' ' + secondName[Math.round(random(0, secondName.length - 1))],
-    coatColor: coatColorArr[Math.round(random(0, coatColorArr.length - 1))],
-    eyesColor: eyesColorArr[Math.round(random(0, eyesColorArr.length - 1))]
+    name: firstName[random(0, firstName.length)] + ' ' + secondName[random(0, secondName.length)],
+    coatColor: coatColorArr[random(0, coatColorArr.length)],
+    eyesColor: eyesColorArr[random(0, eyesColorArr.length - 1)]
   },
   {
-    name: firstName[Math.round(random(0, firstName.length - 1))] + ' ' + secondName[Math.round(random(0, secondName.length - 1))],
-    coatColor: coatColorArr[Math.round(random(0, coatColorArr.length - 1))],
-    eyesColor: eyesColorArr[Math.round(random(0, eyesColorArr.length - 1))]
+    name: firstName[random(0, firstName.length)] + ' ' + secondName[random(0, secondName.length)],
+    coatColor: coatColorArr[random(0, coatColorArr.length)],
+    eyesColor: eyesColorArr[random(0, eyesColorArr.length - 1)]
   },
   {
-    name: firstName[Math.round(random(0, firstName.length - 1))] + ' ' + secondName[Math.round(random(0, secondName.length - 1))],
-    coatColor: coatColorArr[Math.round(random(0, coatColorArr.length - 1))],
-    eyesColor: eyesColorArr[Math.round(random(0, eyesColorArr.length - 1))]
+    name: firstName[random(0, firstName.length)] + ' ' + secondName[random(0, secondName.length)],
+    coatColor: coatColorArr[random(0, coatColorArr.length)],
+    eyesColor: eyesColorArr[random(0, eyesColorArr.length - 1)]
   },
   {
-    name: firstName[Math.round(random(0, firstName.length - 1))] + ' ' + secondName[Math.round(random(0, secondName.length - 1))],
-    coatColor: coatColorArr[Math.round(random(0, coatColorArr.length - 1))],
-    eyesColor: eyesColorArr[Math.round(random(0, eyesColorArr.length - 1))]
+    name: firstName[random(0, firstName.length)] + ' ' + secondName[random(0, secondName.length)],
+    coatColor: coatColorArr[random(0, coatColorArr.length)],
+    eyesColor: eyesColorArr[random(0, eyesColorArr.length - 1)]
   }
 ];
 
@@ -54,3 +54,27 @@ for (var i = 0; i < wizard.length; i++) {
 similarListElement.appendChild(fragment);
 
 setupHero.querySelector('.setup-similar').classList.remove('hidden');
+
+// var arrayElem1 = ['raz', 'dva', 'tri'];
+// var arrayElem2 = ['lala', 'dada', 'nana'];
+// var arrayElem3 = ['blue', 'green', 'red'];
+//
+// var getRandomArrayElem = function (array) {
+//   return array[Math.floor(Math.random() * array.length)];
+// };
+//
+// var renderObject = function (number, slogan, color) {
+//   return {
+//     number: getRandomArrayElem(number),
+//     slogan: getRandomArrayElem(slogan),
+//     color: getRandomArrayElem(color)
+//   };
+// };
+//
+// var arrayObjects = [];
+//
+// for (var i = 0; i < 3; i++) {
+//   arrayObjects.push(renderObject(arrayElem1, arrayElem2, arrayElem3));
+// };
+//
+// console.log(arrayObjects);
