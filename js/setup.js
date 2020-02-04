@@ -21,8 +21,6 @@ var EYES_COLORS_ARR = ['black', 'red', 'blue', 'yellow', 'green'];
 var FIREBALL_COLORS_ARR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 var ESC_KEY = 'Escape';
 var ENTER_KEY = 'Enter';
-var MIN_NAME_LENGTH = 2;
-var MAX_NAME_LENGTH = 25;
 
 var getRandomArrayElem = function (array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -106,17 +104,6 @@ userNameInput.addEventListener('invalid', function () {
     userNameInput.setCustomValidity('Обязательное поле');
   } else {
     userNameInput.setCustomValidity('');
-  }
-});
-
-userNameInput.addEventListener('input', function (evt) {
-  var target = evt.target;
-  if (target.value.length < MIN_NAME_LENGTH) {
-    target.setCustomValidity('Имя должно состоять минимум из ' + MIN_NAME_LENGTH + '-х символов');
-  } else if (target.value.length > MAX_NAME_LENGTH) {
-    target.setCustomValidity('Имя должно состоять максимум из ' + MAX_NAME_LENGTH + '-ти символов');
-  } else {
-    target.setCustomValidity('');
   }
 });
 
