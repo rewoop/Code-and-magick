@@ -2,6 +2,8 @@
 
 (function () {
   var setupDialogElement = document.querySelector('.setup');
+  var openButton = document.querySelector('.setup-open');
+  var closeButton = setupDialogElement.querySelector('.setup-close');
   var dialogHandler = setupDialogElement.querySelector('.upload');
 
   var DEFAULT_WINDOW_POSITION_TOP = 80 + 'px';
@@ -45,11 +47,10 @@
       if (dragged) {
         var onClickPreventDefault = function (clickEvt) {
           clickEvt.preventDefault();
-          dialogHandler.removeEventListener('click', onClickPreventDefault)
+          dialogHandler.removeEventListener('click', onClickPreventDefault);
         };
         dialogHandler.addEventListener('click', onClickPreventDefault);
       }
-
     };
 
     document.addEventListener('mousemove', onMouseMove);
@@ -64,4 +65,8 @@
   openButton.addEventListener('click', resetDialogPosition);
   closeButton.addEventListener('click', resetDialogPosition);
 
+  window.dialog = {
+    DEFAULT_WINDOW_POSITION_TOP: DEFAULT_WINDOW_POSITION_TOP,
+    DEFAULT_WINDOW_POSITION_LEFT: DEFAULT_WINDOW_POSITION_LEFT
+  };
 })();
