@@ -6,9 +6,6 @@
   var closeButton = setupDialogElement.querySelector('.setup-close');
   var dialogHandler = setupDialogElement.querySelector('.upload');
 
-  var DEFAULT_WINDOW_POSITION_TOP = 80 + 'px';
-  var DEFAULT_WINDOW_POSITION_LEFT = 50 + '%';
-
   dialogHandler.addEventListener('mousedown', function (evt) {
     evt.preventDefault();
 
@@ -58,15 +55,9 @@
   });
 
   var resetDialogPosition = function () {
-    setupDialogElement.style.top = DEFAULT_WINDOW_POSITION_TOP;
-    setupDialogElement.style.left = DEFAULT_WINDOW_POSITION_LEFT;
+    setupDialogElement.style = '';
   };
 
   openButton.addEventListener('click', resetDialogPosition);
   closeButton.addEventListener('click', resetDialogPosition);
-
-  window.dialog = {
-    DEFAULT_WINDOW_POSITION_TOP: DEFAULT_WINDOW_POSITION_TOP,
-    DEFAULT_WINDOW_POSITION_LEFT: DEFAULT_WINDOW_POSITION_LEFT
-  };
 })();
