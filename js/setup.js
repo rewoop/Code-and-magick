@@ -47,9 +47,4 @@
   userNameInput.addEventListener('blur', function () {
     document.addEventListener('keydown', escapeKeydownHandler);
   });
-
-  window.setup = {
-    ESC_KEY: ESC_KEY,
-    ENTER_KEY: ENTER_KEY
-  };
 })();

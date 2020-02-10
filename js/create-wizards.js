@@ -45,12 +45,4 @@
   };
 
   createWizards();
-
-  window.createWizards = {
-    FIRST_NAMES: FIRST_NAMES,
-    SECOND_NAMES: SECOND_NAMES,
-    COAT_COLORS_ARR: COAT_COLORS_ARR,
-    EYES_COLORS_ARR: EYES_COLORS_ARR,
-    FIREBALL_COLORS_ARR: FIREBALL_COLORS_ARR
-  };
 })();

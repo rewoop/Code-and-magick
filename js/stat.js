@@ -79,19 +79,4 @@
       barRender(ctx, names[i], barHeight, i);
     }
   };
-
-  window.stat = {
-    CLOUD_WIDTH: CLOUD_WIDTH,
-    CLOUD_HEIGHT: CLOUD_HEIGHT,
-    CLOUD_X: CLOUD_X,
-    CLOUD_Y: CLOUD_Y,
-    TEXT_X: TEXT_X,
-    TEXT_Y: TEXT_Y,
-    TEXT_GAP: TEXT_GAP,
-    GAP: GAP,
-    BAR_GAP: BAR_GAP,
-    BAR_WIDTH: BAR_WIDTH,
-    SATURATION_MIN: SATURATION_MIN,
-    SATURATION_MAX: SATURATION_MAX,
-  };
 })();
