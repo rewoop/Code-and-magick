@@ -47,4 +47,12 @@
   userNameInput.addEventListener('blur', function () {
     document.addEventListener('keydown', escapeKeydownHandler);
   });
+
+  var form = document.querySelector('.setup-wizard-form');
+  form.addEventListener('submit', function (evt) {
+    window.backend.load(new FormData(form), function () {
+      setupHero.classList.add('hidden');
+    });
+    evt.preventDefault();
+  });
 })();
