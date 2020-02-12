@@ -8,6 +8,7 @@
   var openButton = document.querySelector('.setup-open');
   var closeButton = setupHero.querySelector('.setup-close');
   var userNameInput = setupHero.querySelector('.setup-user-name');
+  var form = document.querySelector('.setup-wizard-form');
 
   setupHero.querySelector('.setup-similar').classList.remove('hidden');
 
@@ -48,10 +49,24 @@
     document.addEventListener('keydown', escapeKeydownHandler);
   });
 
-  var form = document.querySelector('.setup-wizard-form');
   form.addEventListener('submit', function (evt) {
-    window.backend.load(new FormData(form), function () {
+    window.backend.save(new FormData(form), function () {
+      var message = document.querySelector('.errorMessage');
+      if (message) {
+        message.parentNode.removeChild(message);
+      }
       setupHero.classList.add('hidden');
+    }, function (errorMessage) {
+      var node = document.createElement('div');
+      node.classList.add('errorMessage');
+      node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
+      node.style.position = 'absolute';
+      node.style.left = 0;
+      node.style.right = 0;
+      node.style.fontSize = '30px';
+
+      node.textContent = errorMessage;
+      document.body.insertAdjacentElement('afterbegin', node);
     });
     evt.preventDefault();
   });
