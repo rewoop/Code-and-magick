@@ -8,8 +8,7 @@
   var openButton = document.querySelector('.setup-open');
   var closeButton = setupHero.querySelector('.setup-close');
   var userNameInput = setupHero.querySelector('.setup-user-name');
-
-  setupHero.querySelector('.setup-similar').classList.remove('hidden');
+  var form = document.querySelector('.setup-wizard-form');
 
   var escapeKeydownHandler = function (evt) {
     if (evt.key === ESC_KEY) {
@@ -47,4 +46,24 @@
   userNameInput.addEventListener('blur', function () {
     document.addEventListener('keydown', escapeKeydownHandler);
   });
+
+  form.addEventListener('submit', function (evt) {
+    window.backend.save(new FormData(form), function () {
+      var message = document.querySelector('.errorMessage');
+      if (message) {
+        message.parentNode.removeChild(message);
+      }
+      setupHero.classList.add('hidden');
+    }, function (errorMessage) {
+      window.createWizards.errorHandler(errorMessage);
+    });
+    evt.preventDefault();
+  });
+
+  window.setup = {
+    setupHero: setupHero,
+    openButton: openButton,
+    closeButton: closeButton,
+    userNameInput: userNameInput
+  };
 })();
