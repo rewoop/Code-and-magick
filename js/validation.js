@@ -1,8 +1,7 @@
 'use strict';
 
 (function () {
-  var setupHero = document.querySelector('.setup');
-  var userNameInput = setupHero.querySelector('.setup-user-name');
+  var userNameInput = window.setup.userNameInput;
 
   userNameInput.addEventListener('invalid', function () {
     if (userNameInput.validity.tooShort) {

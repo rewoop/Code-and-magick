@@ -6,7 +6,7 @@
   var FIREBALL_COLORS_ARR = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
   var DEFAULT_FIREBALL_VALUE = '#ee4830';
 
-  var setupHero = document.querySelector('.setup');
+  var setupHero = window.setup.setupHero;
   var wizardCoatColor = setupHero.querySelector('.wizard-coat');
   var wizardEyesColor = setupHero.querySelector('.wizard-eyes');
   var fireballColor = setupHero.querySelector('.setup-fireball-wrap');

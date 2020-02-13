@@ -5,6 +5,9 @@
 
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
   var similarListElement = document.querySelector('.setup-similar-list');
+  var setupSimilarBlock = document.querySelector('.setup-similar');
+
+  setupSimilarBlock.classList.remove('hidden');
 
   var getRandomArrayElem = function (array) {
     return array[Math.floor(Math.random() * array.length)];
@@ -37,6 +40,11 @@
 
     node.textContent = errorMessage;
     document.body.insertAdjacentElement('afterbegin', node);
+    setupSimilarBlock.classList.add('hidden');
+  };
+
+  window.createWizards = {
+    errorHandler: errorHandler
   };
 
   window.backend.load(successHandler, errorHandler);

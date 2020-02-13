@@ -10,8 +10,6 @@
   var userNameInput = setupHero.querySelector('.setup-user-name');
   var form = document.querySelector('.setup-wizard-form');
 
-  setupHero.querySelector('.setup-similar').classList.remove('hidden');
-
   var escapeKeydownHandler = function (evt) {
     if (evt.key === ESC_KEY) {
       closeButtonClickHandler();
@@ -57,17 +55,15 @@
       }
       setupHero.classList.add('hidden');
     }, function (errorMessage) {
-      var node = document.createElement('div');
-      node.classList.add('errorMessage');
-      node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
-      node.style.position = 'absolute';
-      node.style.left = 0;
-      node.style.right = 0;
-      node.style.fontSize = '30px';
-
-      node.textContent = errorMessage;
-      document.body.insertAdjacentElement('afterbegin', node);
+      window.createWizards.errorHandler(errorMessage);
     });
     evt.preventDefault();
   });
+
+  window.setup = {
+    setupHero: setupHero,
+    openButton: openButton,
+    closeButton: closeButton,
+    userNameInput: userNameInput
+  };
 })();

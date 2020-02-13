@@ -2,8 +2,6 @@
 
 (function () {
   var setupDialogElement = document.querySelector('.setup');
-  var openButton = document.querySelector('.setup-open');
-  var closeButton = setupDialogElement.querySelector('.setup-close');
   var dialogHandler = setupDialogElement.querySelector('.upload');
 
   dialogHandler.addEventListener('mousedown', function (evt) {
@@ -58,6 +56,6 @@
     setupDialogElement.style = '';
   };
 
-  openButton.addEventListener('click', resetDialogPosition);
-  closeButton.addEventListener('click', resetDialogPosition);
+  window.setup.openButton.addEventListener('click', resetDialogPosition);
+  window.setup.closeButton.addEventListener('click', resetDialogPosition);
 })();
