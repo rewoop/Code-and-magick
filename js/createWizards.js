@@ -2,6 +2,7 @@
 
 (function () {
   var MAX_SIMILAR_WIZARD_COUNT = 4;
+  var DEBOUNCE_TIMEOUT = 500;
 
   var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
   var similarListElement = document.querySelector('.setup-similar-list');
@@ -50,24 +51,23 @@
     }));
   };
 
-  window.customizeWizard.wizard.onEyesChange = function (color) {
-    eyesColor = color;
+  var debounce = function (functionDebounce, timeout) {
     if (lastTimeout) {
       window.clearTimeout(lastTimeout);
     }
     lastTimeout = window.setTimeout(function () {
-      updateWizards();
-    }, 300);
+      functionDebounce();
+    }, timeout);
+  };
+
+  window.customizeWizard.wizard.onEyesChange = function (color) {
+    eyesColor = color;
+    debounce(updateWizards, DEBOUNCE_TIMEOUT);
   };
 
   window.customizeWizard.wizard.onCoatChange = function (color) {
     coatColor = color;
-    if (lastTimeout) {
-      window.clearTimeout(lastTimeout);
-    }
-    lastTimeout = window.setTimeout(function () {
-      updateWizards();
-    }, 300);
+    debounce(updateWizards, DEBOUNCE_TIMEOUT);
   };
 
   var successHandler = function (data) {
