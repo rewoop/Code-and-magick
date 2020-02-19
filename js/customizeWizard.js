@@ -16,8 +16,8 @@
 
   fireballColorInput.value = DEFAULT_FIREBALL_VALUE;
   var wizard = {
-    onEyesChange: function () {},
-    onCoatChange: function () {}
+    onCoatChange: function () {},
+    onEyesChange: function () {}
   };
 
   var getRandomArrayElem = function (array) {
