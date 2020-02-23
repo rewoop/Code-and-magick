@@ -4,7 +4,7 @@
   var ESC_KEY = 'Escape';
   var ENTER_KEY = 'Enter';
 
-  var setupHero = document.querySelector('.setup');
+  var setupHero = window.customizeWizard.setupHero;
   var openButton = document.querySelector('.setup-open');
   var closeButton = setupHero.querySelector('.setup-close');
   var userNameInput = setupHero.querySelector('.setup-user-name');
@@ -61,7 +61,6 @@
   });
 
   window.setup = {
-    setupHero: setupHero,
     openButton: openButton,
     closeButton: closeButton,
     userNameInput: userNameInput
